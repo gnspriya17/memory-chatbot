@@ -12,6 +12,14 @@ while True:
     if question.lower() in ["exit", "quit"]:
         print("Exiting the chatbot. Goodbye!")
         break
+    elif question.lower() == "history":
+        print("\n----Conversation History----")
+        for msg in message:
+            if msg["role"] == "user":
+                print("You: " + msg["content"])
+            elif msg["role"] == "assistant":
+                print("Synora:"+ msg["content"])
+            print("----------------------------\n")
     else:
         message.append({
             "role": "user",
@@ -23,4 +31,4 @@ while True:
             "role": "assistant",
             "content": answer
         })
-        print("Synora:", answer)
+        print("Synora: ", answer)
